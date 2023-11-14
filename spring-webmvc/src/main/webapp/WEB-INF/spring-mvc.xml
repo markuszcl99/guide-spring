@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+">
+    <!--开启注解驱动-->
+    <context:annotation-config/>
+    <!--开启controller层bean的扫描-->
+    <context:component-scan base-package="com.markus.guide.spring.mvc.controller">
+        <!--只扫描Controller和RestController标注的Bean-->
+        <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+        <context:include-filter type="annotation" expression="org.springframework.web.bind.annotation.RestController"/>
+    </context:component-scan>
+
+</beans>
