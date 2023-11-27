@@ -29,6 +29,7 @@ public class DependencyLookupDemo {
 
     // 1. 实时查找
     realtimeLookup(beanFactory);
+    System.out.println("========================");
     // 2. 延迟查找
     lazyLookup(beanFactory);
   }
@@ -47,6 +48,7 @@ public class DependencyLookupDemo {
   private static void lazyLookup(BeanFactory beanFactory) throws Exception {
     @SuppressWarnings("unchecked")
     ObjectFactory<User> factoryBean = (ObjectFactory<User>) beanFactory.getBean("factoryBean");
+    System.out.println("延迟生效中....");
     System.out.println("延迟查找: " + factoryBean.getObject());
   }
 }

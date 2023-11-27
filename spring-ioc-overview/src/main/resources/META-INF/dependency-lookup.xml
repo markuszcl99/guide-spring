@@ -9,8 +9,13 @@
         <property name="username" value="markus zhang"/>
     </bean>
 
+    <bean id="user2" class="com.markus.spring.ioc.overview.domain.User" lazy-init="true">
+        <property name="id" value="2"/>
+        <property name="username" value="markus zhang"/>
+    </bean>
+
     <bean id="factoryBean" class="org.springframework.beans.factory.config.ObjectFactoryCreatingFactoryBean">
-        <property name="targetBeanName" value="user"/>
+        <property name="targetBeanName" value="user2"/>
     </bean>
 
 </beans>

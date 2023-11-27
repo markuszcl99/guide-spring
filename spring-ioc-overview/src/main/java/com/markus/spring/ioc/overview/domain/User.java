@@ -9,6 +9,10 @@ public class User {
   private Long id;
   private String username;
 
+  public User(){
+    System.out.println("开始初始化");
+  }
+
   public Long getId() {
     return id;
   }
