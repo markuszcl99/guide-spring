@@ -11,6 +11,7 @@
     <modules>
         <module>spring-mvc</module>
         <module>spring-webmvc</module>
+        <module>spring-ioc-overview</module>
     </modules>
 
     <properties>
