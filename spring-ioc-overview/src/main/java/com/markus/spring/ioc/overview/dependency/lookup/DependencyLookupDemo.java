@@ -3,9 +3,12 @@ package com.markus.spring.ioc.overview.dependency.lookup;
 import com.markus.spring.ioc.overview.domain.User;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.FactoryBean;
+import org.springframework.beans.factory.ListableBeanFactory;
 import org.springframework.beans.factory.ObjectFactory;
 import org.springframework.beans.factory.config.ObjectFactoryCreatingFactoryBean;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import java.util.Map;
 
 /**
  * @Author: zhangchenglong06
@@ -43,7 +46,18 @@ public class DependencyLookupDemo {
     System.out.println("========================");
     // 2. 延迟查找
     lazyLookup(beanFactory);
+    System.out.println("========================");
+    // 3. 按照类型查找单个Bean
+    typeLookup(beanFactory);
+    System.out.println("========================");
+    // 4. 按照类型查找多个Bean
+    collectionLookup(beanFactory);
   }
+
+
+  /**
+   * ========================按照 Bean 名称查找========================
+   */
 
   /**
    * 实时查找
@@ -61,5 +75,30 @@ public class DependencyLookupDemo {
     ObjectFactory<User> factoryBean = (ObjectFactory<User>) beanFactory.getBean("factoryBean");
     System.out.println("延迟生效中....");
     System.out.println("延迟查找: " + factoryBean.getObject());
+  }
+
+  /**
+   * ========================按照 Bean 类型查找========================
+   */
+
+  /**
+   * 单个Bean类型查找
+   *
+   * @param beanFactory
+   */
+  private static void typeLookup(BeanFactory beanFactory) {
+    User user = beanFactory.getBean(User.class);
+    System.out.println(user);
+  }
+
+  /**
+   * 根据集合类型查找
+   */
+  private static void collectionLookup(BeanFactory beanFactory) {
+    if (beanFactory instanceof ListableBeanFactory) {
+      ListableBeanFactory listableBeanFactory = (ListableBeanFactory) beanFactory;
+      Map<String, User> userMap = listableBeanFactory.getBeansOfType(User.class);
+      userMap.forEach((beanName, user) -> System.out.println("Bean name: " + beanName + ", User: " + user));
+    }
   }
 }
