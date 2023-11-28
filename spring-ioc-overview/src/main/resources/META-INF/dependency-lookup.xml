@@ -14,6 +14,10 @@
         <property name="username" value="markus zhang"/>
     </bean>
 
+    <bean id="superUser" class="com.markus.spring.ioc.overview.domain.SuperUser" parent="user">
+        <property name="address" value="山东菏泽"/>
+    </bean>
+
     <bean id="factoryBean" class="org.springframework.beans.factory.config.ObjectFactoryCreatingFactoryBean">
         <property name="targetBeanName" value="user2"/>
     </bean>

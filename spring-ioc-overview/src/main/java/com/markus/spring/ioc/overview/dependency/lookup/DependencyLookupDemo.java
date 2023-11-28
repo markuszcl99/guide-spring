@@ -1,5 +1,6 @@
 package com.markus.spring.ioc.overview.dependency.lookup;
 
+import com.markus.spring.ioc.overview.annotation.Super;
 import com.markus.spring.ioc.overview.domain.User;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.FactoryBean;
@@ -52,6 +53,9 @@ public class DependencyLookupDemo {
     System.out.println("========================");
     // 4. 按照类型查找多个Bean
     collectionLookup(beanFactory);
+    System.out.println("========================");
+    // 5. 按照注解类型查找集合Bean
+    annotationLookup(beanFactory);
   }
 
 
@@ -63,6 +67,7 @@ public class DependencyLookupDemo {
    * 实时查找
    */
   private static void realtimeLookup(BeanFactory beanFactory) {
+    // 名称+类型
     User user = beanFactory.getBean("user", User.class);
     System.out.println("实时查找: " + user);
   }
@@ -99,6 +104,22 @@ public class DependencyLookupDemo {
       ListableBeanFactory listableBeanFactory = (ListableBeanFactory) beanFactory;
       Map<String, User> userMap = listableBeanFactory.getBeansOfType(User.class);
       userMap.forEach((beanName, user) -> System.out.println("Bean name: " + beanName + ", User: " + user));
+    }
+  }
+
+  /**
+   * ========================按照注解查找========================
+   */
+  /**
+   * 根据注解查找集合Bean
+   *
+   * @param beanFactory
+   */
+  private static void annotationLookup(BeanFactory beanFactory) {
+    if (beanFactory instanceof ListableBeanFactory) {
+      ListableBeanFactory listableBeanFactory = (ListableBeanFactory) beanFactory;
+      Map<String, Object> beansWithAnnotation = listableBeanFactory.getBeansWithAnnotation(Super.class);
+      beansWithAnnotation.forEach((beanName, bean) -> System.out.println("Bean name: " + beanName + ", Bean: " + bean));
     }
   }
 }
