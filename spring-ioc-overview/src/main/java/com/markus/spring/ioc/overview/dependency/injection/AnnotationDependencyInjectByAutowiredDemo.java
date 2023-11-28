@@ -63,6 +63,7 @@ public class AnnotationDependencyInjectByAutowiredDemo {
 
   @Bean
   public UserHolder userHolder(@Autowired User user) {
+    // 通过@Autowired 将user 注入进来，并在此设置到userHolder中
     UserHolder userHolder = new UserHolder();
     userHolder.setUser(user);
     return userHolder;
