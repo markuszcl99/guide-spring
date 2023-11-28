@@ -16,8 +16,10 @@ public class DependencyInjectDemo {
     UserRepository userRepository = beanFactory.getBean("userRepositoryManualInjection",UserRepository.class);
     System.out.println(userRepository);
 
-    System.out.println("====================================自动绑定====================================");
+    System.out.println("====================================自动绑定完成依赖注入====================================");
     UserRepository userRepositoryByAutowire = beanFactory.getBean("userRepositoryAutowiring",UserRepository.class);
+    System.out.println(userRepositoryByAutowire.getUser());
+    System.out.println(userRepositoryByAutowire.getUsers());
     System.out.println(userRepositoryByAutowire.getEnvironment());
     System.out.println(userRepositoryByAutowire.getBeanFactory());
     System.out.println(userRepositoryByAutowire.getApplicationContext());

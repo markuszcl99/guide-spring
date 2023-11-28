@@ -2,6 +2,7 @@ package com.markus.spring.ioc.overview.repository;
 
 import com.markus.spring.ioc.overview.domain.User;
 import org.springframework.beans.factory.BeanFactory;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.ApplicationContext;
 import org.springframework.core.env.Environment;
 
@@ -63,14 +64,4 @@ public class UserRepository {
     this.applicationContext = applicationContext;
   }
 
-  @Override
-  public String toString() {
-    return "UserRepository{" +
-        "user=" + user +
-        ", users=" + users +
-        ", beanFactory=" + beanFactory +
-        ", environment=" + environment +
-        ", applicationContext=" + applicationContext +
-        '}';
-  }
 }
