@@ -12,8 +12,11 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  */
 public class MultiNameBeanRegisterDemo {
   /**
-   * 当xml中一个Bean被指定为多个name且没有指定id的情况下，会默认指定name的第一个名称做为id，其余作为别名
-   * 当有指定id的情况，那么name中指定的名称将全部作为别名
+   * 结论:
+   * <p>
+   * 1. 当xml中一个Bean被指定为多个name且没有指定id的情况下，会默认指定name的第一个名称做为id，其余作为别名
+   * <p>
+   * 2. 当有指定id的情况，那么name中指定的名称将全部作为别名
    */
   public static void main(String[] args) {
     ListableBeanFactory beanFactory = new ClassPathXmlApplicationContext("classpath:/META-INF/bean-definition.xml");
