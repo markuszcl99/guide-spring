@@ -12,4 +12,7 @@
         <property name="username" value="markus zhang"/>
     </bean>
 
+    <!--给Bean实例定义别名-->
+    <alias name="user" alias="user4"/>
+
 </beans>
