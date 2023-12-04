@@ -14,4 +14,7 @@
     <bean id="userFactory" class="com.markus.spring.bean.factory.DefaultUserFactory"/>
     <bean id="user-by-instance-method" factory-bean="userFactory" factory-method="getObject"/>
 
+    <!--通过FactoryBean-->
+    <bean id="user-by-factory-bean" class="com.markus.spring.bean.factory.UserFactoryBean"/>
+
 </beans>
