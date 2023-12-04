@@ -13,6 +13,7 @@
         <module>spring-webmvc</module>
         <module>spring-ioc-overview</module>
         <module>spring-bean</module>
+        <module>spring-resource</module>
     </modules>
 
     <properties>
