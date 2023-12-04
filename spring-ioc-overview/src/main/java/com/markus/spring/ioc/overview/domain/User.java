@@ -9,7 +9,7 @@ public class User {
   private Long id;
   private String username;
 
-  public User(){
+  public User() {
     System.out.println("开始初始化");
   }
 
@@ -27,6 +27,13 @@ public class User {
 
   public void setUsername(String username) {
     this.username = username;
+  }
+
+  public static User createUser() {
+    User user = new User();
+    user.setId(1L);
+    user.setUsername("markus zhang");
+    return user;
   }
 
   @Override
