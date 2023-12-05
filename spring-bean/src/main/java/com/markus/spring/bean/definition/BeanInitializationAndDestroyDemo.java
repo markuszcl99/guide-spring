@@ -31,7 +31,7 @@ public class BeanInitializationAndDestroyDemo {
    * // @Lazy 懒加载，只有在应用程序使用（依赖注入或者依赖查找）到时才会触发Bean的初始化
    */
   @Bean(initMethod = "initUserFactory", destroyMethod = "doDestroy")
-  @Lazy
+//  @Lazy
   public DefaultUserFactory userFactory() {
     return new DefaultUserFactory();
   }
