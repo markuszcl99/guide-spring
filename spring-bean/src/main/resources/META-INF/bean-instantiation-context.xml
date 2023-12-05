@@ -12,7 +12,7 @@
 
     <!--通过抽象工厂方法-->
     <bean id="userFactory" class="com.markus.spring.bean.factory.DefaultUserFactory"/>
-    <bean id="user-by-instance-method" factory-bean="userFactory" factory-method="getObject"/>
+    <bean id="user-by-instance-method" factory-bean="userFactory" factory-method="createUser"/>
 
     <!--通过FactoryBean-->
     <bean id="user-by-factory-bean" class="com.markus.spring.bean.factory.UserFactoryBean"/>
