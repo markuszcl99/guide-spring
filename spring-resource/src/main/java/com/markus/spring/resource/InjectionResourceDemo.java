@@ -20,9 +20,15 @@ public class InjectionResourceDemo {
   @Value("classpath:META-INF/default.properties")
   private Resource resource;
 
+  /**
+   * 找到当前类路径下所有的META-INF目录，然后通过ant模型对*.properties进行匹配
+   */
   @Value("classpath*:META-INF/*.properties")
   private Resource[] resources;
 
+  /**
+   * 找到当前类路径下第一个META-INF目录，然后通过该目录根据ant模型对*.properties进行匹配，所以匹配不到
+   */
   @Value("classpath:META-INF/*.properties")
   private Resource[] errorUseValueResources;
 
