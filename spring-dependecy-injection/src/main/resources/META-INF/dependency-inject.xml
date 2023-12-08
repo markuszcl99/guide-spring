@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/util
+       http://www.springframework.org/schema/util/spring-util.xsd">
+
+
+    <!-- 作为依赖注入的候选 -->
+    <bean id="user" class="com.markus.spring.ioc.overview.domain.User">
+        <property name="id" value="1"/>
+        <property name="username" value="markus zhang"/>
+    </bean>
+
+    <!-- 不作为依赖注入的候选-->
+    <bean id="user-not-candidate" class="com.markus.spring.ioc.overview.domain.User" autowire-candidate="false">
+        <property name="id" value="2"/>
+        <property name="username" value="张成龙"/>
+    </bean>
+
+    <!-- 通过类型注入 按照预期 users属性中应该只包含一个User实例-->
+    <bean id="userListHolder" class="com.markus.spring.ioc.overview.domain.UserListHolder" autowire="byType">
+
+    </bean>
+</beans>

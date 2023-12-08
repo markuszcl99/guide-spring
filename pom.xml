@@ -15,6 +15,7 @@
         <module>spring-bean</module>
         <module>spring-resource</module>
         <module>spring-configuration-metadata</module>
+        <module>spring-dependecy-injection</module>
     </modules>
 
     <properties>
