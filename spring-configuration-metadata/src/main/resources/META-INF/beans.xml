@@ -8,6 +8,13 @@
                            http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd"
        default-lazy-init="true">
 
+    <!--下面context生效的基本原理-->
+    <!--
+            XmlBeanDefinitionReader ==> BeanDefinitionParserDelegate ==>
+             NamespaceHandler =（namespaceUri）=>
+             ContextNamespaceHandler(通过指定的元素标签，找到对应的元素解析器BeanDefinitionParser，进行后续BeanDefinition解析的逻辑)
+    -->
+
     <!--开启注解驱动-->
     <context:annotation-config/>
     <!--设置路径扫描(不然通过注解标注的Bean可能注册不进来)-->
