@@ -16,6 +16,7 @@
         <module>spring-resource</module>
         <module>spring-configuration-metadata</module>
         <module>spring-dependecy-injection</module>
+        <module>spring-annotation</module>
     </modules>
 
     <properties>
