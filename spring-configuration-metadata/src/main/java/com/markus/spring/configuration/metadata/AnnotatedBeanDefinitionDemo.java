@@ -4,6 +4,7 @@ import com.markus.spring.ioc.overview.domain.User;
 import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 
 /**
  * @author: markus
@@ -12,6 +13,7 @@ import org.springframework.context.annotation.Bean;
  * @Blog: https://markuszhang.com
  * It's my honor to share what I've learned with you!
  */
+@Configuration("annotatedBeanDefinitionDemo")
 public class AnnotatedBeanDefinitionDemo {
     public static void main(String[] args) {
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext();
@@ -20,7 +22,14 @@ public class AnnotatedBeanDefinitionDemo {
         context.refresh();
 
         BeanDefinition user = context.getBeanDefinition("user");
+        System.out.println(user.getResolvableType());
+        System.out.println(user.getResourceDescription());
         User bean = context.getBean(User.class);
+
+        BeanDefinition annotatedBeanDefinitionDemo = context.getBeanDefinition("annotatedBeanDefinitionDemo");
+        System.out.println(annotatedBeanDefinitionDemo);
+        // 没什么用
+        System.out.println(annotatedBeanDefinitionDemo.getOriginatingBeanDefinition());
 
         context.close();
     }
