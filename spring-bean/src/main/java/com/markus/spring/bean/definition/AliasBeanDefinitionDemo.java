@@ -10,9 +10,11 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  * @Description: 别名注册bean示例
  */
 public class AliasBeanDefinitionDemo {
-  public static void main(String[] args) {
-    BeanFactory beanFactory = new ClassPathXmlApplicationContext("classpath:/META-INF/bean-definition.xml");
-    User user = beanFactory.getBean("user4", User.class);
-    System.out.println(user);
-  }
+    public static void main(String[] args) {
+        BeanFactory beanFactory = new ClassPathXmlApplicationContext("classpath:/META-INF/bean-definition.xml");
+        // 通过别名获取 Bean 实例
+        User user1 = beanFactory.getBean("user1", User.class);
+        User user4 = beanFactory.getBean("user4", User.class);
+        System.out.println(user1 == user4);
+    }
 }
