@@ -8,7 +8,7 @@
 
 ## Spring IoC容器
 ### Spring Bean 生命周期
-- [ ] Spring Bean 基础知识
+- [ ] [Spring Bean 基础知识](./spring-doc/Spring%20Bean%20基础.md)
 - [ ] BeanDefinition 的读取与注册原理
 - [ ] BeanDefinition 合并原理
 - [ ] Bean 实例化、初始化、属性赋值阶段原理
