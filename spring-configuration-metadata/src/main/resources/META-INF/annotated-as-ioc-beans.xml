@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="user" class="com.markus.spring.ioc.overview.domain.User" primary="true">
+        <property name="id" value="1"/>
+        <property name="username" value="markus zhang"/>
+    </bean>
+
+    <bean id="superUser" class="com.markus.spring.ioc.overview.domain.SuperUser" parent="user">
+        <property name="address" value="山东菏泽"/>
+    </bean>
+</beans>

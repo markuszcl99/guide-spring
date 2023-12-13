@@ -12,7 +12,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  */
 public class XmlConfigurationMetaDataDemo {
   public static void main(String[] args) {
-    ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("classpath:/META-INF/beans.xml");
+    ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("classpath:/META-INF/xml-as-ioc-beans.xml");
     System.out.println("Spring 容器已经启动");
 
     ConfigurableListableBeanFactory beanFactory = context.getBeanFactory();
