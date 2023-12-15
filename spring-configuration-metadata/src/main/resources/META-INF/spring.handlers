@@ -1,0 +1,2 @@
+##  xml markus 命名空间到 NamespaceHandler的映射
+http\://www.markuszhang.com/schema/markus=com.markus.spring.configuration.metadata.MakrusNamespaceHandler

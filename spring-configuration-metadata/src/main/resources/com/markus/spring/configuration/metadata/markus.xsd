@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<xsd:schema xmlns="http://www.markuszhang.com/schema/markus"
+            xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            targetNamespace="http://www.markuszhang.com/schema/markus">
+
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace"/>
+
+    <!-- 定义 markus标签的元素-->
+    <xsd:element name="operator-scan">
+        <xsd:annotation>
+            <xsd:documentation><![CDATA[
+            scan operator
+			]]></xsd:documentation>
+        </xsd:annotation>
+        <xsd:complexType>
+            <xsd:attribute name="base-package" type="xsd:string" use="required"/>
+        </xsd:complexType>
+    </xsd:element>
+
+
+</xsd:schema>
