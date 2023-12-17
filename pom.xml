@@ -19,6 +19,7 @@
         <module>spring-annotation</module>
         <module>spring-bean-lifecycle</module>
         <module>spring-bean-scope</module>
+        <module>spring-dependency-lookup</module>
     </modules>
 
     <properties>
