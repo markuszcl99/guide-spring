@@ -14,6 +14,8 @@
 - [ ] Bean 实例化、初始化、属性赋值阶段原理
 - [ ] Aware 在 Bean 生命周期内的扩展
 - [ ] BeanPostProcessor 在 Bean 生命周期内的扩展
+### Spring IoC 容器生命周期
+- [ ] [Spring IoC 容器生命周期](./spring-doc/Spring%20IoC%20容器生命周期.md)
 
 
 
