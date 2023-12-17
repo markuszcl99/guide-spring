@@ -15,7 +15,7 @@ import static com.markus.spring.bean.scope.ThreadLocalScope.THREAD_LOCAL_SCOPE_N
 /**
  * @author: markus
  * @date: 2023/12/17 7:13 PM
- * @Description: 自定义 Scope 实现 {@link ThreadLocalScope}
+ * @Description: 自定义 Scope 实现 {@link ThreadLocalScope} ; Spring Cloud @RefreshScope 也是自定义实现
  * @Blog: https://markuszhang.com
  * It's my honor to share what I've learned with you!
  */
