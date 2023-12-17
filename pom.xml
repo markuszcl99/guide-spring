@@ -18,6 +18,7 @@
         <module>spring-dependecy-injection</module>
         <module>spring-annotation</module>
         <module>spring-bean-lifecycle</module>
+        <module>spring-bean-scope</module>
     </modules>
 
     <properties>
