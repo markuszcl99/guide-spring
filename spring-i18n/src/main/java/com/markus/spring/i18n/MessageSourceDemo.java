@@ -27,5 +27,10 @@ public class MessageSourceDemo {
     hello = messageSource.getMessage("hello", null, Locale.ENGLISH);
     System.out.println(hello);
 
+    String introduce = messageSource.getMessage("introduce", new Object[]{"Zhang Chenglong", 24}, Locale.ENGLISH);
+    System.out.println(introduce);
+
+    introduce = messageSource.getMessage("introduce", new Object[]{"张某某", 24}, Locale.CHINA);
+    System.out.println(introduce);
   }
 }
