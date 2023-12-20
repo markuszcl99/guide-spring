@@ -27,12 +27,23 @@
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
         <spring.version>5.3.18</spring.version>
+        <spring.boot.version>2.3.12.RELEASE</spring.boot.version>
         <cglib.version>3.3.0</cglib.version>
         <asm.version>9.1</asm.version>
     </properties>
 
     <dependencyManagement>
         <dependencies>
+
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring.boot.version}</version>
+                <!-- maven 默认情况下会导入 jar，指定 type 为 pom 的情况时就会 导入 pom-->
+                <type>pom</type>
+                <!-- 导入 pom 中的 <dependencyManagement> 部分-->
+                <scope>import</scope>
+            </dependency>
             <!-- https://mvnrepository.com/artifact/org.springframework/spring-context -->
             <dependency>
                 <groupId>org.springframework</groupId>
