@@ -19,7 +19,7 @@ import java.util.Locale;
 @EnableAutoConfiguration
 public class CustomizedMessageSourceDemo {
 
-  @Bean(AbstractApplicationContext.MESSAGE_SOURCE_BEAN_NAME)
+//  @Bean(AbstractApplicationContext.MESSAGE_SOURCE_BEAN_NAME)
   public MessageSource messageSource() {
     ResourceBundleMessageSource messageSource = new ResourceBundleMessageSource();
     messageSource.setBasename("META-INF/messages");
