@@ -960,6 +960,7 @@ public class ResourceAnnotationDependencyInjectionDemo {
 先来看下@Autowired的
 
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/bd08b208d89041bb946bfdda6c1a4ca6.jpeg)
+
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/b9a51af6d2e94258aff01de9e1009b2f.jpeg)
 
 

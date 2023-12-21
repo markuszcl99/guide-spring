@@ -8,16 +8,15 @@
 
 ## Spring IoC容器
 ### Spring Bean 生命周期
-- [ ] [Spring Bean 基础知识](./spring-doc/Spring%20Bean%20基础.md)
+- [x] [Spring Bean 基础知识](./spring-doc/Spring%20Bean%20基础.md)
 - [ ] BeanDefinition 的读取与注册原理
 - [ ] BeanDefinition 合并原理
 - [ ] Bean 实例化、初始化、属性赋值阶段原理
 - [ ] Aware 在 Bean 生命周期内的扩展
 - [ ] BeanPostProcessor 在 Bean 生命周期内的扩展
 ### Spring IoC 容器生命周期
-- [ ] [Spring IoC 容器生命周期](./spring-doc/Spring%20IoC%20容器生命周期.md)
+- [x] [Spring IoC 容器生命周期](./spring-doc/Spring%20IoC%20容器生命周期.md)
 
 ### Spring 散文 🐶
-
-- [ ] [一文搞懂Spring @Autowired注解的使用及其原理]()
+- [x] [一文搞懂Spring @Autowired注解的使用及其原理](./spring-doc/一文搞懂Spring@Autowired注解的使用及其原理.md)
 
