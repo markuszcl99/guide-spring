@@ -21,6 +21,7 @@
         <module>spring-bean-scope</module>
         <module>spring-dependency-lookup</module>
         <module>spring-i18n</module>
+        <module>spring-validation</module>
     </modules>
 
     <properties>
