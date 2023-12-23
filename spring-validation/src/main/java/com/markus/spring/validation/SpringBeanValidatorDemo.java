@@ -9,6 +9,7 @@ import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 import org.springframework.validation.beanvalidation.MethodValidationPostProcessor;
 
 import javax.validation.Valid;
+import javax.validation.ValidatorFactory;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
@@ -26,6 +27,9 @@ public class SpringBeanValidatorDemo {
 
     public static void main(String[] args) {
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("classpath:/META-INF/bean-validation-context.xml");
+
+        Validator bean = context.getBean(Validator.class);
+        System.out.println(bean);
 
         UserBeanProcessor userBeanProcessor = context.getBean(UserBeanProcessor.class);
         UserBean userBean = new UserBean();
