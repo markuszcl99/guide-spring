@@ -23,13 +23,13 @@
 
     <bean id="user-list-holder" class="com.markus.spring.ioc.overview.domain.UserListHolder"
           autowire="constructor"> <!--通过类型 自动绑定-->
-<!--        <property name="users">-->
-<!--            <list>-->
-<!--                <ref bean="user"/>-->
-<!--                <ref bean="user-by-constructor"/>-->
-<!--                &lt;!&ndash; 依次增加 &ndash;&gt;-->
-<!--            </list>-->
-<!--        </property>-->
+        <!--        <property name="users">-->
+        <!--            <list>-->
+        <!--                <ref bean="user"/>-->
+        <!--                <ref bean="user-by-constructor"/>-->
+        <!--                &lt;!&ndash; 依次增加 &ndash;&gt;-->
+        <!--            </list>-->
+        <!--        </property>-->
     </bean>
 
     <!-- 不作为依赖注入的候选-->
@@ -42,4 +42,7 @@
     <bean id="userListHolder" class="com.markus.spring.ioc.overview.domain.UserListHolder" autowire="byType">
 
     </bean>
+
+    <bean id="ignoreDependencyDemo" class="com.markus.spring.dependency.injection.IgnoreDependencyDemo"
+          autowire="byType"/>
 </beans>
