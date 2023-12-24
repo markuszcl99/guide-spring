@@ -10,8 +10,26 @@
 
     <!-- 作为依赖注入的候选 -->
     <bean id="user" class="com.markus.spring.ioc.overview.domain.User">
+        <!-- 属性注入 -->
         <property name="id" value="1"/>
         <property name="username" value="markus zhang"/>
+    </bean>
+
+    <bean id="user-by-constructor" class="com.markus.spring.ioc.overview.domain.User">
+        <!-- 构造器注入 -->
+        <constructor-arg index="0" value="2"/>
+        <constructor-arg index="1" value="luna"/>
+    </bean>
+
+    <bean id="user-list-holder" class="com.markus.spring.ioc.overview.domain.UserListHolder"
+          autowire="byType"> <!--通过类型 自动绑定-->
+<!--        <property name="users">-->
+<!--            <list>-->
+<!--                <ref bean="user"/>-->
+<!--                <ref bean="user-by-constructor"/>-->
+<!--                &lt;!&ndash; 依次增加 &ndash;&gt;-->
+<!--            </list>-->
+<!--        </property>-->
     </bean>
 
     <!-- 不作为依赖注入的候选-->

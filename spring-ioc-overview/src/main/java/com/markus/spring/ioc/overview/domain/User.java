@@ -20,14 +20,19 @@ public class User implements BeanNameAware {
         System.out.println("开始初始化");
     }
 
+    public User(Long id, String username) {
+        this.id = id;
+        this.username = username;
+    }
+
     @PostConstruct
     public void init() {
-        System.out.println("User Bean ["+beanName+"] 初始化完成...");
+        System.out.println("User Bean [" + beanName + "] 初始化完成...");
     }
 
     @PreDestroy
     public void destroy() {
-        System.out.println("User Bean ["+beanName+"] 销毁中...");
+        System.out.println("User Bean [" + beanName + "] 销毁中...");
     }
 
     public Long getId() {
@@ -64,5 +69,9 @@ public class User implements BeanNameAware {
     @Override
     public void setBeanName(String name) {
         this.beanName = name;
+    }
+
+    public String getBeanName() {
+        return this.beanName;
     }
 }
