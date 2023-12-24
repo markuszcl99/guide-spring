@@ -13,6 +13,14 @@ public class UserListHolder {
 
     private Collection<User> users;
 
+    public UserListHolder() {
+
+    }
+
+    public UserListHolder(Collection<User> users) {
+        this.users = users;
+    }
+
     public Collection<User> getUsers() {
         return users;
     }
