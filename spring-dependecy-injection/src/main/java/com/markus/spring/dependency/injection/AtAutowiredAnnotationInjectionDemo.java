@@ -4,6 +4,7 @@ import com.markus.spring.ioc.overview.domain.User;
 import com.markus.spring.ioc.overview.domain.UserHolder;
 import org.springframework.beans.factory.ObjectFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.*;
 
@@ -17,7 +18,7 @@ import java.util.Optional;
  * @Description: @Autowired 注解注入示例
  */
 @Configuration
-@PropertySource("classpath:/META-INF/application.properties")
+@PropertySource(value = "classpath:/META-INF/application.properties", encoding = "UTF-8")
 public class AtAutowiredAnnotationInjectionDemo {
 
     @Autowired
@@ -53,13 +54,19 @@ public class AtAutowiredAnnotationInjectionDemo {
     @Autowired
     private UserHolder userHolder;
 
+    @Autowired
+    private String myName;
+
+    @Value("${my.nickname:小张}")
+    private String myNickname;
+
     @Value("${my_site}")
     private String mySite;
 
 
     public static void main(String[] args) {
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext();
-        context.register(AtAutowiredAnnotationInjectionDemo.class);
+        context.register(AtAutowiredAnnotationInjectionDemo.class, BeanConfig.class);
 
         context.refresh();
 
@@ -77,6 +84,8 @@ public class AtAutowiredAnnotationInjectionDemo {
         System.out.println("]");
         System.out.println("demo.userFromMethodInjection : " + demo.userFromMethodInjection);
         System.out.println("demo.userHolder : " + demo.userHolder);
+        System.out.println("demo.myName : " + demo.myName);
+        System.out.println("demo.myNickname : " + demo.myNickname);
         System.out.println("demo.mySite : " + demo.mySite);
 
         context.close();
@@ -104,5 +113,10 @@ public class AtAutowiredAnnotationInjectionDemo {
         UserHolder userHolder = new UserHolder();
         userHolder.setUser(user);
         return userHolder;
+    }
+
+    @Bean
+    public String myName() {
+        return "markus zhang";
     }
 }
