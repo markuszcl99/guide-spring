@@ -1,5 +1,6 @@
 package com.markus.spring.ioc.overview.domain;
 
+import com.markus.spring.ioc.overview.domain.enums.City;
 import org.springframework.beans.factory.BeanNameAware;
 
 import javax.annotation.PostConstruct;
@@ -11,67 +12,90 @@ import javax.annotation.PreDestroy;
  * @Description:
  */
 public class User implements BeanNameAware {
-    private Long id;
-    private String username;
+  private Long id;
+  private String username;
 
-    private String beanName;
+  private City city;
 
-    public User() {
-        System.out.println("开始初始化");
-    }
+  private Company company;
 
-    public User(Long id, String username) {
-        this.id = id;
-        this.username = username;
-    }
+  private String beanName;
 
-    @PostConstruct
-    public void init() {
-        System.out.println("User Bean [" + beanName + "] 初始化完成...");
-    }
+  public User() {
+    System.out.println("开始初始化");
+  }
 
-    @PreDestroy
-    public void destroy() {
-        System.out.println("User Bean [" + beanName + "] 销毁中...");
-    }
+  public User(Long id, String username) {
+    this.id = id;
+    this.username = username;
+  }
 
-    public Long getId() {
-        return id;
-    }
+  @PostConstruct
+  public void init() {
+    System.out.println("User Bean [" + beanName + "] 初始化完成...");
+  }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+  @PreDestroy
+  public void destroy() {
+    System.out.println("User Bean [" + beanName + "] 销毁中...");
+  }
 
-    public String getUsername() {
-        return username;
-    }
+  public Long getId() {
+    return id;
+  }
 
-    public void setUsername(String username) {
-        this.username = username;
-    }
+  public void setId(Long id) {
+    this.id = id;
+  }
 
-    public static User createUser() {
-        User user = new User();
-        user.setId(1L);
-        user.setUsername("markus zhang");
-        return user;
-    }
+  public String getUsername() {
+    return username;
+  }
 
-    @Override
-    public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", username='" + username + '\'' +
-                '}';
-    }
+  public void setUsername(String username) {
+    this.username = username;
+  }
 
-    @Override
-    public void setBeanName(String name) {
-        this.beanName = name;
-    }
+  public City getCity() {
+    return city;
+  }
 
-    public String getBeanName() {
-        return this.beanName;
-    }
+  public void setCity(City city) {
+    this.city = city;
+  }
+
+  public Company getCompany() {
+    return company;
+  }
+
+  public void setCompany(Company company) {
+    this.company = company;
+  }
+
+  public static User createUser() {
+    User user = new User();
+    user.setId(1L);
+    user.setUsername("markus zhang");
+    return user;
+  }
+
+  @Override
+  public String toString() {
+    return "User{" +
+        "id=" + id +
+        ", username='" + username + '\'' +
+        ", city=" + city +
+        ", company=" + company +
+        ", beanName='" + beanName + '\'' +
+        '}';
+  }
+
+  @Override
+  public void setBeanName(String name) {
+    this.beanName = name;
+  }
+
+  public String getBeanName() {
+    return this.beanName;
+  }
 }

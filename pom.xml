@@ -22,6 +22,7 @@
         <module>spring-dependency-lookup</module>
         <module>spring-i18n</module>
         <module>spring-validation</module>
+        <module>spring-data-binding</module>
     </modules>
 
     <properties>
