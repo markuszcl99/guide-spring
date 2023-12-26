@@ -14,8 +14,12 @@ import java.util.Collection;
 @Configuration
 public class BeanConfigA {
 
-  @Autowired
+//  @Autowired
   private Collection<UserEntity> userEntities;
+
+  public BeanConfigA(Collection<UserEntity> userEntities) {
+    this.userEntities = userEntities;
+  }
 
   @Bean
   public UserEntity userEntityA1() {
