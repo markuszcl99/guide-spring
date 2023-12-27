@@ -1,0 +1,4 @@
+1. DataBinder - 将 属性值 绑定到 目标对象上 , 也支持 数据校验 和 绑定结果分析
+2. DataBinder 实现 PropertyEditorRegistry, 支持 添加自定义 JavaBeans 框架的 PropertyEditors
+3. DataBinder 实现 TypeConverter, 支持 数据类型 转换
+4. DataBinder 整合 AbstractPropertyBindingResult, 支持 属性绑定结果 分析
