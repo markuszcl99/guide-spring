@@ -1,0 +1,19 @@
+BeanConfigA 和 BeanConfigB 产生循环依赖的路径：
+
+实例化 BeanConfigA 时，需要接续构造器参数，完成 Collection<UserEntity> 的注入
+==>
+在解析 Collection<UserEntity> 依赖时，需要先实例化 UserEntityB 对应的 FactoryBean 也就是 BeanConfigB
+==>
+实例化 BeanConfigB 时，....(路径和 BeanConfigA 一样)，因此导致了 循环依赖问题
+
+
+为什么实例化 UserEntityB 时要先 实例化 BeanConfigB 呢？
+
+因为 Spring 框架在通过 @Bean 注入 Bean 时，其 BeanDefinition 的 FactoryBean 对应的 Bean 是 BeanConfigB，而 factoryMethod 的方法调用是通过 factoryBean 来执行的
+因此，要先实例化 BeanConfigB 才可以
+
+Spring 是如何判断 当前是循环引用的？
+
+对于单例 Bean ，Spring 通过 org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.singletonsCurrentlyInCreation 存储当前全局正在创建的Bean，
+每次在创建实例前会将当前实例存到此处，并在创建完移除。
+对于原型或者自定义作用域的 Bean 实例创建，则存储在 org.springframework.beans.factory.support.AbstractBeanFactory.prototypesCurrentlyInCreation 当前线程有效
