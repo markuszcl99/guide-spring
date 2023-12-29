@@ -1,3 +1,30 @@
 1. 类型转换分为两种 Spring 3以前 和 Spring 3及以后
 2. Spring 3 之前采用的是 java beans 的 PropertyEditor
 3. Spring 3 及以后推出了 Converter 和 GenericConverter API 进行类型转换
+
+
+Spring 类型转换服务类 继承体系
+
+ConversionService: 进行类型转换的服务接口
+- GenericConversionService
+-
+
+ConversionRegistry: 注册类型转换 converter 的接口
+
+
+ConfigurableConversionService 继承 ConversionService、ConversionRegistry，整合两个接口的功能
+
+GenericConversionService 实现 ConfigurableConversionService，实现 类型转换、Converter注册 功能
+
+DefaultGenericConversionService 是 默认的 GenericConversionService 实现，提供了默认的 Converter 注册
+
+FormattingConversionService 继承 GenericConversionService 实现 FormatterRegistry，在 GenericConversionService 基础上增加 格式化 的功能
+
+DefaultFormattingConversionService 继承 FormattingConversionService ，再其基础上，增加 JSR-354（钱 & 货币）的格式化以及 joda 时间的格式化功能
+
+
+对于 Spring 一般应用场景来说，DefaultGenericConversionService 够用了，并且框架内部默认的 ConversionService 就是 DefaultGenericConversionService
+具体源码位置 可以参考 : org.springframework.context.support.ConversionServiceFactoryBean.createConversionService
+
+一个细节点: org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization
+这里面对于 ConversionService 的依赖查找，指明了 ConversionService 类型 + BeanName。因此我们在配置 ConversionService 需要注意这两点，名称一定要写对
