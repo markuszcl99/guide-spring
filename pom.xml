@@ -24,6 +24,7 @@
         <module>spring-validation</module>
         <module>spring-data-binding</module>
         <module>spring-conversion</module>
+        <module>spring-generic</module>
     </modules>
 
     <properties>
