@@ -1,10 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
-       http://www.springframework.org/schema/beans/spring-beans.xsd">
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/util
+       http://www.springframework.org/schema/util/spring-util.xsd">
 
     <bean class="com.markus.spring.conversion.CustomizedPropertyEditorRegistrar"/>
+
+    <util:properties id="context">
+        <prop key="id">1</prop>
+        <prop key="username">markus zhang</prop>
+    </util:properties>
 
     <bean id="user" class="com.markus.spring.ioc.overview.domain.User">
         <property name="id" value="1"/>
@@ -15,7 +23,16 @@
                 username=markus zhang
             </value>
         </property>
+        <property name="context" ref="context"/> <!-- property to string-->
+    </bean>
 
+
+    <bean id="conversionService" class="org.springframework.context.support.ConversionServiceFactoryBean">
+        <property name="converters">
+            <set>
+                <bean class="com.markus.spring.conversion.PropertyToStringConverter"/>
+            </set>
+        </property>
     </bean>
 
 </beans>

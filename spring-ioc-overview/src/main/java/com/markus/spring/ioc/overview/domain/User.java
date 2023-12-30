@@ -13,101 +13,112 @@ import java.util.Properties;
  * @Description:
  */
 public class User implements BeanNameAware {
-  private Long id;
-  private String username;
+    private Long id;
+    private String username;
 
-  private City city;
+    private City city;
 
-  private Company company;
+    private Company company;
 
-  private String beanName;
+    private String beanName;
 
-  private Properties properties;
+    private Properties properties;
 
-  public User() {
-    System.out.println("开始初始化");
-  }
+    private String context;
 
-  public User(Long id, String username) {
-    this.id = id;
-    this.username = username;
-  }
+    public User() {
+        System.out.println("开始初始化");
+    }
 
-  @PostConstruct
-  public void init() {
-    System.out.println("User Bean [" + beanName + "] 初始化完成...");
-  }
+    public User(Long id, String username) {
+        this.id = id;
+        this.username = username;
+    }
 
-  @PreDestroy
-  public void destroy() {
-    System.out.println("User Bean [" + beanName + "] 销毁中...");
-  }
+    @PostConstruct
+    public void init() {
+        System.out.println("User Bean [" + beanName + "] 初始化完成...");
+    }
 
-  public Long getId() {
-    return id;
-  }
+    @PreDestroy
+    public void destroy() {
+        System.out.println("User Bean [" + beanName + "] 销毁中...");
+    }
 
-  public void setId(Long id) {
-    this.id = id;
-  }
+    public Long getId() {
+        return id;
+    }
 
-  public String getUsername() {
-    return username;
-  }
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-  public void setUsername(String username) {
-    this.username = username;
-  }
+    public String getUsername() {
+        return username;
+    }
 
-  public City getCity() {
-    return city;
-  }
+    public void setUsername(String username) {
+        this.username = username;
+    }
 
-  public void setCity(City city) {
-    this.city = city;
-  }
+    public City getCity() {
+        return city;
+    }
 
-  public Company getCompany() {
-    return company;
-  }
+    public void setCity(City city) {
+        this.city = city;
+    }
 
-  public void setCompany(Company company) {
-    this.company = company;
-  }
+    public Company getCompany() {
+        return company;
+    }
 
-  public static User createUser() {
-    User user = new User();
-    user.setId(1L);
-    user.setUsername("markus zhang");
-    return user;
-  }
+    public void setCompany(Company company) {
+        this.company = company;
+    }
 
-  public Properties getProperties() {
-    return properties;
-  }
+    public String getContext() {
+        return context;
+    }
 
-  public void setProperties(Properties properties) {
-    this.properties = properties;
-  }
+    public void setContext(String context) {
+        this.context = context;
+    }
 
-  @Override
-  public String toString() {
-    return "User{" +
-        "id=" + id +
-        ", username='" + username + '\'' +
-        ", city=" + city +
-        ", company=" + company +
-        ", beanName='" + beanName + '\'' +
-        ", properties=" + properties +
-        '}';
-  }
+    public static User createUser() {
+        User user = new User();
+        user.setId(1L);
+        user.setUsername("markus zhang");
+        return user;
+    }
 
-  @Override
-  public void setBeanName(String name) {
-    this.beanName = name;
-  }
+    public Properties getProperties() {
+        return properties;
+    }
 
-  public String getBeanName() {
-    return this.beanName;
-  }
+    public void setProperties(Properties properties) {
+        this.properties = properties;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", username='" + username + '\'' +
+                ", city=" + city +
+                ", company=" + company +
+                ", beanName='" + beanName + '\'' +
+                ", properties=" + properties +
+                ", context='" + context + '\'' +
+                '}';
+    }
+
+    @Override
+    public void setBeanName(String name) {
+        this.beanName = name;
+    }
+
+    public String getBeanName() {
+        return this.beanName;
+    }
 }
