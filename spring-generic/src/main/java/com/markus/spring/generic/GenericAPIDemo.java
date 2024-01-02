@@ -1,9 +1,8 @@
 package com.markus.spring.generic;
 
-import java.lang.reflect.ParameterizedType;
-import java.lang.reflect.Type;
-import java.lang.reflect.TypeVariable;
+import java.lang.reflect.*;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.stream.Stream;
 
 /**
@@ -18,7 +17,10 @@ public class GenericAPIDemo {
    * Java中的Class包括: 原生类型（raw type）、数组类型（array type）、原始类型（primitive type）、 泛型参数类型（parameterized type)
    * 以及 泛型类型变量（type variable）
    */
-  public static void main(String[] args) {
+
+  List<String>[] lists;
+
+  public static void main(String[] args) throws NoSuchFieldException {
     // 1. raw types : 原生类型 eg. List<Integer> 中的 List 就是原生类型，简而言之就是没有泛型的非数组、原始类型都是原生类型
     Class<?> listClass = ArrayList.class;
     System.out.println(listClass);
@@ -27,17 +29,20 @@ public class GenericAPIDemo {
     Class<?> arrayClass = int[].class;
     System.out.println(arrayClass);
 
-
-    // 3. parameterized type : 泛型参数类型
+    // 3. parameterized types : 泛型参数类型
     ParameterizedType parameterizedType = (ParameterizedType) ArrayList.class.getGenericSuperclass();
     System.out.println(parameterizedType);
 
-    // 4. type variable : 泛型类型变量
+    // 4 generic array types : 泛型数组类型
+    Field field = GenericAPIDemo.class.getDeclaredField("lists");
+    Type genericType = field.getGenericType();
+    System.out.println(genericType);
+
+    // 5. type variable : 泛型类型变量
     Type[] actualTypeArguments = parameterizedType.getActualTypeArguments();
 
     Stream.of(actualTypeArguments)
         .map(TypeVariable.class::cast) // Type --> TypeVariable
         .forEach(System.out::println);
-
   }
 }
