@@ -19,6 +19,7 @@ public class GenericAPIDemo {
    */
 
   List<String>[] lists;
+  List<? extends Number> numbers;
 
   public static void main(String[] args) throws NoSuchFieldException {
     // 1. raw types : 原生类型 eg. List<Integer> 中的 List 就是原生类型，简而言之就是没有泛型的非数组、原始类型都是原生类型
@@ -44,5 +45,14 @@ public class GenericAPIDemo {
     Stream.of(actualTypeArguments)
         .map(TypeVariable.class::cast) // Type --> TypeVariable
         .forEach(System.out::println);
+
+    // 6. wildcard types : 泛型通配符类型
+    field = GenericAPIDemo.class.getDeclaredField("numbers");
+    parameterizedType = (ParameterizedType) field.getGenericType();
+    WildcardType wildcardType = (WildcardType) parameterizedType.getActualTypeArguments()[0];
+    // ? extends Number
+    System.out.println(wildcardType);
+    // Number
+    System.out.println(wildcardType.getUpperBounds()[0]);
   }
 }
