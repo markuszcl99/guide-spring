@@ -1,0 +1,8 @@
+泛型相关的知识
+
+Java 1.5 新增 Type 接口来表示所有类型的通用超类
+
+GenericArrayType : 泛型数组类型
+ParameterizedType :  泛型参数类型
+TypeVariable : 泛型参数类型变量
+WildcardType : 泛型通配符类型
