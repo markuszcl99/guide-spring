@@ -40,7 +40,7 @@ public class GenericAPIDemo {
 
     // 4. type variable : 泛型类型变量
     Type[] actualTypeArguments = parameterizedType.getActualTypeArguments();
-    System.out.print("AbstractList type arguments : ");
+    System.out.print("AbstractList type variable : ");
     Stream.of(actualTypeArguments)
         .map(TypeVariable.class::cast) // Type --> TypeVariable
         .forEach(System.out::println);
