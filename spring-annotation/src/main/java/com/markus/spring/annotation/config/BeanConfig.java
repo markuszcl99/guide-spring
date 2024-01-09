@@ -1,9 +1,8 @@
 package com.markus.spring.annotation.config;
 
 import com.markus.spring.ioc.overview.domain.User;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Import;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.*;
 
 /**
  * @Author: zhangchenglong06
@@ -12,6 +11,10 @@ import org.springframework.context.annotation.Import;
  */
 @Configuration
 @Import({BeanConfig2.class, MyImportSelector.class, MyImportBeanDefinitionRegistrar.class})
+@ImportResource({
+    "classpath:/META-INF/application-context.xml"
+})
+@PropertySource("classpath:/META-INF/user.properties")
 public class BeanConfig {
 
   @Bean
@@ -19,6 +22,14 @@ public class BeanConfig {
     User user = new User();
     user.setId(1L);
     user.setUsername("register by BeanConfig @Bean");
+    return user;
+  }
+
+  @Bean
+  public User user6(@Value("${user.id}") Long id, @Value("${user.username}") String username) {
+    User user = new User();
+    user.setId(id);
+    user.setUsername(username);
     return user;
   }
 }
