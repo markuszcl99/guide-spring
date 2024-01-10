@@ -26,10 +26,6 @@ public class AtConfigurationAnnotationDemo {
     });
     System.out.println("==============================");
 
-    BeanConfig2 beanConfig2 = applicationContext.getBean(BeanConfig2.class);
-    User manualInvoke = beanConfig2.user2();
-    User lookup = applicationContext.getBean("user2", User.class);
-    System.out.println("manualInvoke == lookup : " + (manualInvoke == lookup));
     applicationContext.close();
   }
 }

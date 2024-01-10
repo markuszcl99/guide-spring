@@ -27,7 +27,7 @@ public class User implements BeanNameAware {
     private String context;
 
     public User() {
-        System.out.println("开始初始化");
+        System.out.println("User 开始初始化");
     }
 
     public User(Long id, String username) {
