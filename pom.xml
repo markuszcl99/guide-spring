@@ -25,6 +25,7 @@
         <module>spring-data-binding</module>
         <module>spring-conversion</module>
         <module>spring-generic</module>
+        <module>spring-application-context-lifecycle</module>
     </modules>
 
     <properties>
