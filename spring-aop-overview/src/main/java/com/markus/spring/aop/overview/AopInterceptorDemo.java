@@ -43,7 +43,7 @@ public class AopInterceptorDemo {
             MethodAfterThrowingInterceptor methodAfterThrowingInterceptor = new MethodAfterThrowingInterceptor() {
               @Override
               public void afterThrowing(Object proxy, Method method, Object[] args, Throwable throwable) {
-                System.err.printf("exception is \n %s\n", throwable);
+                System.err.printf("exception is %s\n", throwable);
               }
             };
             methodAfterThrowingInterceptor.afterThrowing(proxy, method, args, e);
