@@ -16,7 +16,8 @@
             <!-- execution(modifiers-pattern? ret-type-pattern declaring-type-pattern?name-pattern(param-pattern) throws-pattern?-->
             <aop:pointcut id="pointcut" expression="execution(public * com.markus.spring.aop.overview.EchoService.*(..))"/>
             <aop:around method="aroundMethod" pointcut-ref="pointcut"/>
-            <aop:before method="beforeMethod" pointcut-ref="pointcut"/>
+            <aop:before method="beforeMethod2" pointcut-ref="pointcut"/>
+            <aop:before method="beforeMethod1" pointcut-ref="pointcut"/>
         </aop:aspect>
     </aop:config>
 

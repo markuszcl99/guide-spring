@@ -17,7 +17,11 @@ public class AspectXmlConfig {
         return pjp.proceed();
     }
 
-    public void beforeMethod() {
-        System.out.println("before invoke method");
+    public void beforeMethod2() {
+        System.out.println("before invoke method2");
+    }
+
+    public void beforeMethod1() {
+        System.out.println("before invoke method1");
     }
 }

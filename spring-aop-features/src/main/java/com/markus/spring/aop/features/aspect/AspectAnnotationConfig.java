@@ -5,6 +5,8 @@ import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
+import org.springframework.core.annotation.Order;
+import org.springframework.stereotype.Component;
 
 /**
  * @Author: zhangchenglong06
@@ -12,6 +14,8 @@ import org.aspectj.lang.annotation.Pointcut;
  * @Description:
  */
 @Aspect
+@Order(1)
+@Component
 public class AspectAnnotationConfig {
 
     @Pointcut("execution(public * com.markus.spring.aop.overview.EchoService.*(..))")

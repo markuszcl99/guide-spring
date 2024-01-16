@@ -5,6 +5,7 @@ import com.markus.spring.aop.overview.DefaultEchoService;
 import com.markus.spring.aop.overview.EchoService;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 
 /**
@@ -13,21 +14,24 @@ import org.springframework.context.annotation.EnableAspectJAutoProxy;
  * @Description: 基于注解的 AOP 示例
  */
 @EnableAspectJAutoProxy // 开启自动代理
+@ComponentScan({
+        "com.markus.spring.aop.features.aspect"
+})
 public class AspectJAnnotationDemo {
-  public static void main(String[] args) {
-    AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext();
-    context.register(AspectJAnnotationDemo.class, AspectAnnotationConfig.class);
-    context.refresh();
+    public static void main(String[] args) {
+        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext();
+        context.register(AspectJAnnotationDemo.class);
+        context.refresh();
 
-    EchoService echoService = context.getBean("echoService", EchoService.class);
-    System.out.println(echoService.echo("Hello,AOP"));
+        EchoService echoService = context.getBean("echoService", EchoService.class);
+        System.out.println(echoService.echo("Hello,AOP"));
 
-    context.close();
-  }
+        context.close();
+    }
 
-  @Bean
-  public EchoService echoService() {
-    return new DefaultEchoService();
-  }
+    @Bean
+    public EchoService echoService() {
+        return new DefaultEchoService();
+    }
 
 }
