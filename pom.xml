@@ -27,6 +27,7 @@
         <module>spring-generic</module>
         <module>spring-application-context-lifecycle</module>
         <module>spring-aop-overview</module>
+        <module>spring-aop-features</module>
     </modules>
 
     <properties>

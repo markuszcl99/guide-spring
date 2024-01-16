@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/aop
+       http://www.springframework.org/schema/aop/spring-aop.xsd ">
+
+    <!-- 开启自动代理-->
+    <aop:aspectj-autoproxy/>
+
+    <bean id="aspectXmlConfig" class="com.markus.spring.aop.features.aspect.AspectXmlConfig"/>
+    <aop:config>
+        <aop:aspect id="aspect" ref="aspectXmlConfig">
+            <!-- execution(modifiers-pattern? ret-type-pattern declaring-type-pattern?name-pattern(param-pattern) throws-pattern?-->
+            <aop:pointcut id="pointcut" expression="execution(public * *.*(..))"/>
+            <aop:before method="beforeMethod" pointcut-ref="pointcut"/>
+        </aop:aspect>
+    </aop:config>
+
+    <bean id="echoService" class="com.markus.spring.aop.overview.DefaultEchoService"/>
+
+</beans>
