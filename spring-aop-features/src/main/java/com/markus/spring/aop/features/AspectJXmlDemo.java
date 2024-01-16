@@ -12,7 +12,6 @@ public class AspectJXmlDemo {
   public static void main(String[] args) {
     ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("classpath:/META-INF/spring-aop-context.xml");
 
-
     EchoService echoService = context.getBean("echoService", EchoService.class);
     System.out.println(echoService.echo("Hello,Spring AOP"));
     context.close();
