@@ -11,6 +11,9 @@ import java.lang.reflect.Proxy;
  */
 public class JdkDynamicProxyDemo {
   public static void main(String[] args) {
+    // 生成 代理类 源文件
+    System.out.println(System.getProperty("sun.misc.ProxyGenerator.saveGeneratedFiles"));
+    System.out.println(System.getProperty("user.dir"));
     // 被代理对象
     EchoService echoService = new DefaultEchoService();
 
@@ -30,6 +33,5 @@ public class JdkDynamicProxyDemo {
     });
 
     System.out.println(proxy.echo("Hello,Jdk Dynamic Proxy"));
-
   }
 }

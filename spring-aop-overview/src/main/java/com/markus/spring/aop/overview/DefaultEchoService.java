@@ -12,4 +12,14 @@ public class DefaultEchoService implements EchoService {
 //    int i = 1 / 0;
     return "Default Echo Service echo ( " + message + " )";
   }
+
+  /**
+   * JDK 不会被代理
+   * CGLIB 会被代理
+   * @param message
+   * @return
+   */
+  public String personal(String message) {
+    return "Default Echo Service personal ( " + message + " )";
+  }
 }
