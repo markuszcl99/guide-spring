@@ -10,7 +10,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  * @Blog: https://markuszhang.com
  * It's my honor to share what I've learned with you!
  */
-public class BeanNameAutoProxyCreatorDemo {
+public class AutoProxyCreatorDemo {
     public static void main(String[] args) {
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("classpath:/META-INF/spring-aop-auto-proxy.xml");
         EchoService echoService = context.getBean(EchoService.class);

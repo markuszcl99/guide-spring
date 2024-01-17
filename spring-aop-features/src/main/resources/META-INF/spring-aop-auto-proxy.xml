@@ -7,14 +7,29 @@
                            http://www.springframework.org/schema/aop
        http://www.springframework.org/schema/aop/spring-aop.xsd ">
 
+    <!-- 注册业务 Bean-->
     <bean id="echoService" class="com.markus.spring.aop.overview.DefaultEchoService"/>
-
+    <!-- 注册 Advice -->
     <bean id="echoServiceInterceptor" class="com.markus.spring.aop.features.interceptor.EchoServiceInterceptor"/>
+    <!-- 注册 pointcut -->
+    <bean id="echoServiceStaticMethodMatcherPointcut"
+          class="com.markus.spring.aop.features.pointcut.EchoServiceStaticMethodMatcherPointcut">
+        <constructor-arg index="0" value="echo"/>
+        <constructor-arg index="1" value="com.markus.spring.aop.overview.EchoService"/>
+    </bean>
 
     <!-- 主动配置 进行代理 -->
-    <bean class="org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator">
-        <property name="beanNames" value="echo*"/>
-        <property name="interceptorNames" value="echoServiceInterceptor"/>
+    <!--    <bean class="org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator">-->
+    <!--        <property name="beanNames" value="echo*"/>-->
+    <!--        <property name="interceptorNames" value="echoServiceInterceptor"/>-->
+    <!--    </bean>-->
+
+    <bean class="org.springframework.aop.support.DefaultPointcutAdvisor">
+        <constructor-arg index="0" ref="echoServiceStaticMethodMatcherPointcut"/>
+        <constructor-arg index="1" ref="echoServiceInterceptor"/>
     </bean>
+    <!-- 实现自动代理 -->
+    <bean class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator"/>
+
 
 </beans>
