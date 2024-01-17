@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/aop
+       http://www.springframework.org/schema/aop/spring-aop.xsd ">
+
+    <bean id="echoService" class="com.markus.spring.aop.overview.DefaultEchoService"/>
+
+    <bean id="echoServiceInterceptor" class="com.markus.spring.aop.features.interceptor.EchoServiceInterceptor"/>
+
+    <!-- 主动配置 进行代理 -->
+    <bean class="org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator">
+        <property name="beanNames" value="echo*"/>
+        <property name="interceptorNames" value="echoServiceInterceptor"/>
+    </bean>
+
+</beans>
