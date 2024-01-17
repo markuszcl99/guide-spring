@@ -15,7 +15,7 @@ import org.springframework.stereotype.Component;
  */
 @Aspect
 @Order
-@Component
+//@Component
 public class AspectAnnotationConfig2 {
 
     @Pointcut("execution(public * com.markus.spring.aop.overview.EchoService.*(..))")

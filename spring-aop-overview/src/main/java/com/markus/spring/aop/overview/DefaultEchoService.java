@@ -1,5 +1,7 @@
 package com.markus.spring.aop.overview;
 
+import java.util.Random;
+
 /**
  * @Author: zhangchenglong06
  * @Date: 2024/1/15
@@ -8,8 +10,11 @@ package com.markus.spring.aop.overview;
 public class DefaultEchoService implements EchoService {
   @Override
   public String echo(String message) {
-    // 故意抛出一个异常
-//    int i = 1 / 0;
+    // 随机故意抛出一个异常
+    Random random = new Random(2);
+    if (random.nextBoolean()) {
+      throw new RuntimeException("For purpose. ");
+    }
     return "Default Echo Service echo ( " + message + " )";
   }
 
