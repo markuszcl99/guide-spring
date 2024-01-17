@@ -2,6 +2,8 @@ package com.markus.spring.aop.features;
 
 import com.markus.spring.aop.overview.DefaultEchoService;
 import com.markus.spring.aop.overview.EchoService;
+import org.aopalliance.intercept.MethodInterceptor;
+import org.aopalliance.intercept.MethodInvocation;
 import org.springframework.aop.MethodBeforeAdvice;
 import org.springframework.aop.framework.ProxyFactory;
 
@@ -21,6 +23,20 @@ public class ProxyFactoryDemo {
       @Override
       public void before(Method method, Object[] args, Object target) throws Throwable {
         System.out.println("intercept method : " + method);
+      }
+    });
+
+    proxyFactory.addAdvice(new MethodInterceptor() {
+      @Override
+      public Object invoke(MethodInvocation invocation) throws Throwable {
+        try {
+          return invocation.proceed();
+        } catch (Exception e) {
+          System.out.println("method after throwing advice invoke");
+          throw e;
+        } finally {
+          System.out.println("method after advice invoke");
+        }
       }
     });
 

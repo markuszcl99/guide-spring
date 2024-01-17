@@ -11,7 +11,7 @@ public class DefaultEchoService implements EchoService {
   @Override
   public String echo(String message) {
     // 随机故意抛出一个异常
-    Random random = new Random(2);
+    Random random = new Random(10);
     if (random.nextBoolean()) {
       throw new RuntimeException("For purpose. ");
     }
