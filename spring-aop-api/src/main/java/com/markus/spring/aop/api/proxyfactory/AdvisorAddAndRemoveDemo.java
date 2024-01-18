@@ -42,5 +42,10 @@ public class AdvisorAddAndRemoveDemo {
     proxyFactory.removeAdvice(afterReturningAdvice);
     // second invoke target method
     System.out.println(proxy.echo("Hello,World"));
+    // frozen advice
+    proxyFactory.setFrozen(true);
+    // add after returning advice will throw AopConfigException
+    proxyFactory.addAdvice(afterReturningAdvice);
+
   }
 }
