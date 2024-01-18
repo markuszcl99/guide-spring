@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="echoService" class="com.markus.spring.aop.overview.DefaultEchoService" scope="prototype"/>
+
+    <bean id="swapper" class="org.springframework.aop.target.HotSwappableTargetSource">
+        <constructor-arg index="0" ref="echoService"/>
+    </bean>
+
+    <bean id="swappable" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="targetSource" ref="swapper"/>
+    </bean>
+</beans>
