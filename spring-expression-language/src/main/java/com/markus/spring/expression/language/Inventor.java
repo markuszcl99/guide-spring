@@ -1,6 +1,7 @@
 package com.markus.spring.expression.language;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  * @author: markus
@@ -14,10 +15,22 @@ public class Inventor {
     private Date birthday;
     private String nationality;
 
+    private List<Boolean> booleans;
+
+    public Inventor() {
+    }
+
     public Inventor(String name, Date birthday, String nationality) {
         this.name = name;
         this.birthday = birthday;
         this.nationality = nationality;
+    }
+
+    public Inventor(String name, Date birthday, String nationality, List<Boolean> booleans) {
+        this.name = name;
+        this.birthday = birthday;
+        this.nationality = nationality;
+        this.booleans = booleans;
     }
 
     public String getName() {
@@ -42,5 +55,13 @@ public class Inventor {
 
     public void setNationality(String nationality) {
         this.nationality = nationality;
+    }
+
+    public List<Boolean> getBooleans() {
+        return booleans;
+    }
+
+    public void setBooleans(List<Boolean> booleans) {
+        this.booleans = booleans;
     }
 }
