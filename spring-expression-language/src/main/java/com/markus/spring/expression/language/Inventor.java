@@ -12,6 +12,7 @@ import java.util.List;
  */
 public class Inventor {
     private String name;
+    private Integer age;
     private Date birthday;
     private String nationality;
 
@@ -63,5 +64,24 @@ public class Inventor {
 
     public void setBooleans(List<Boolean> booleans) {
         this.booleans = booleans;
+    }
+
+    public Integer getAge() {
+        return age;
+    }
+
+    public void setAge(Integer age) {
+        this.age = age;
+    }
+
+    @Override
+    public String toString() {
+        return "Inventor{" +
+                "name='" + name + '\'' +
+                ", age=" + age +
+                ", birthday=" + birthday +
+                ", nationality='" + nationality + '\'' +
+                ", booleans=" + booleans +
+                '}';
     }
 }
