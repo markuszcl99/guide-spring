@@ -31,6 +31,7 @@
         <module>spring-aop-api</module>
         <module>spring-expression-language</module>
         <module>spring-environment</module>
+        <module>spring-test</module>
     </modules>
 
     <properties>
