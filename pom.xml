@@ -43,6 +43,7 @@
         <spring.boot.version>2.5.15</spring.boot.version>
         <cglib.version>3.3.0</cglib.version>
         <asm.version>9.1</asm.version>
+        <mysql.version>8.0.28</mysql.version>
     </properties>
 
     <dependencyManagement>
@@ -96,6 +97,13 @@
                 <artifactId>asm</artifactId>
                 <version>${asm.version}</version>
             </dependency>
+            <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql.version}</version>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
     <dependencies>
