@@ -32,6 +32,8 @@
         <module>spring-expression-language</module>
         <module>spring-environment</module>
         <module>spring-test</module>
+        <module>spring-cache</module>
+        <module>spring-data</module>
     </modules>
 
     <properties>
