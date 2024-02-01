@@ -19,19 +19,21 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = ApplicationConfiguration.class)
 public class TestJdbcTemplate {
-    @Autowired
-    private UserDao userDao;
+  @Autowired
+  private UserDao userDao;
 
-    @Test
-    public void testInsertUser() {
-        User user = new User();
-        user.setName("Luna");
-        user.setAge(24);
-        user.setAddress("山东菏泽");
-        userDao.insertUser(user);
-    }
-    
-    public void testQueryUser(){
-//        userDao.queryUser()
-    }
+  @Test
+  public void testInsertUser() {
+    User user = new User();
+    user.setName("Luna");
+    user.setAge(24);
+    user.setAddress("山东菏泽");
+    userDao.insertUser(user);
+  }
+
+  @Test
+  public void testQueryUser() {
+    User user = userDao.queryUser(5);
+    System.out.println(user);
+  }
 }
