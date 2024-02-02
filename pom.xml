@@ -34,6 +34,7 @@
         <module>spring-test</module>
         <module>spring-cache</module>
         <module>spring-data</module>
+        <module>spring-transaction</module>
     </modules>
 
     <properties>

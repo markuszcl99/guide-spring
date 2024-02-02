@@ -18,5 +18,5 @@ import org.springframework.context.annotation.PropertySource;
 @ComponentScan({
         "com.markus.spring.data.jdbc"
 })
-public class ApplicationConfiguration {
+public class JdbcApplicationConfiguration {
 }

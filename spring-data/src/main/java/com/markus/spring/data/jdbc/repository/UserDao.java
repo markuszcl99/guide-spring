@@ -76,6 +76,26 @@ public class UserDao {
     return userList.get(0);
   }
 
+  @Nullable
+  public User queryUserByName(String name) {
+    String sql = "select * from user where name = ?;";
+    List<User> userList = jdbcTemplate.query(sql, new String[]{name}, new RowMapper<User>() {
+      @Override
+      public User mapRow(ResultSet rs, int rowNum) throws SQLException {
+        User user = new User();
+        user.setId(rs.getInt("id"));
+        user.setAge(rs.getInt("age"));
+        user.setName(rs.getString("name"));
+        user.setAddress(rs.getString("address"));
+        return user;
+      }
+    });
+    if (CollectionUtils.isEmpty(userList)) {
+      return null;
+    }
+    return userList.get(0);
+  }
+
   public List<User> queryUsers(int id) {
     String sql = "select * from user where id >= ?;";
     List<User> userList = jdbcTemplate.query(sql, new Integer[]{id}, new RowMapper<User>() {

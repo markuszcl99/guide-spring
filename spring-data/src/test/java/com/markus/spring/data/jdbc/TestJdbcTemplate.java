@@ -1,6 +1,6 @@
 package com.markus.spring.data.jdbc;
 
-import com.markus.spring.data.jdbc.config.ApplicationConfiguration;
+import com.markus.spring.data.jdbc.config.JdbcApplicationConfiguration;
 import com.markus.spring.data.jdbc.domain.entity.User;
 import com.markus.spring.data.jdbc.repository.UserDao;
 import org.junit.Test;
@@ -19,7 +19,7 @@ import java.util.List;
  * It's my honor to share what I've learned with you!
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes = ApplicationConfiguration.class)
+@ContextConfiguration(classes = JdbcApplicationConfiguration.class)
 public class TestJdbcTemplate {
   @Autowired
   private UserDao userDao;
