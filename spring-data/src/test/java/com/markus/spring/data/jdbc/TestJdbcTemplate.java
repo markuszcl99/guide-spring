@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import java.util.List;
+
 /**
  * @author: markus
  * @date: 2024/2/1 11:29 PM
@@ -35,5 +37,26 @@ public class TestJdbcTemplate {
   public void testQueryUser() {
     User user = userDao.queryUser(5);
     System.out.println(user);
+  }
+
+  @Test
+  public void testQueryUsers() {
+    List<User> users = userDao.queryUsers(1);
+    System.out.println(users);
+  }
+
+  @Test
+  public void testDeleteUser() {
+    userDao.deleteUser(5);
+  }
+
+  @Test
+  public void testUpdateUser() {
+    User user = new User();
+    user.setId(1);
+    user.setName("markus zhang");
+    user.setAge(25);
+    user.setAddress("山东菏泽");
+    userDao.updateUser(user);
   }
 }
