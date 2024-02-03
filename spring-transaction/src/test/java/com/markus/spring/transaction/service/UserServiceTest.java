@@ -28,6 +28,11 @@ public class UserServiceTest {
   }
 
   @Test
+  public void testProcessUserByProgram(){
+    userService.processUserByProgram();
+  }
+
+  @Test
   public void testQueryAllUsers() {
     List<User> users = userService.queryAllUsers();
     users.forEach(System.out::println);

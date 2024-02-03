@@ -4,7 +4,10 @@ import com.markus.spring.data.jdbc.domain.entity.User;
 import com.markus.spring.data.jdbc.repository.UserDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.TransactionStatus;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.transaction.support.TransactionCallbackWithoutResult;
+import org.springframework.transaction.support.TransactionTemplate;
 
 import java.util.List;
 import java.util.Objects;
@@ -20,7 +23,29 @@ public class UserService {
     @Autowired
     private UserDao userDao;
 
-    @Transactional
+    @Autowired
+    private TransactionTemplate transactionTemplate;
+
+    public void processUserByProgram() {
+        User user = new User();
+        user.setName("markus zhang unique time :" + System.currentTimeMillis());
+        user.setAge(25);
+        user.setAddress("山东菏泽");
+        transactionTemplate.execute(new TransactionCallbackWithoutResult() {
+            @Override
+            protected void doInTransactionWithoutResult(TransactionStatus status) {
+                try {
+                    processUser();
+                } catch (Exception e) {
+                    // 如果发生异常，回滚事务
+                    status.setRollbackOnly();
+                    throw e;
+                }
+            }
+        });
+    }
+
+    //    @Transactional
     public void processUser() {
         User user = new User();
         user.setName("markus zhang unique time :" + System.currentTimeMillis());

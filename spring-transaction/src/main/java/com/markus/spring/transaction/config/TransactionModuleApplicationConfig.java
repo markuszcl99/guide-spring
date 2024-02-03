@@ -6,8 +6,10 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 import org.springframework.jdbc.support.JdbcTransactionManager;
+import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.TransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
+import org.springframework.transaction.support.TransactionTemplate;
 
 import javax.sql.DataSource;
 
@@ -20,13 +22,18 @@ import javax.sql.DataSource;
 @EnableTransactionManagement
 @Import(JdbcApplicationConfiguration.class)
 @ComponentScan({
-    "com.markus.spring.transaction.service"
+        "com.markus.spring.transaction.service"
 })
 public class TransactionModuleApplicationConfig {
 
-  @Bean
-  public TransactionManager transactionManager(DataSource dataSource) {
-    return new JdbcTransactionManager(dataSource);
-  }
+    @Bean
+    public PlatformTransactionManager transactionManager(DataSource dataSource) {
+        return new JdbcTransactionManager(dataSource);
+    }
+
+    @Bean
+    public TransactionTemplate transactionTemplate(PlatformTransactionManager transactionManager) {
+        return new TransactionTemplate(transactionManager);
+    }
 
 }
