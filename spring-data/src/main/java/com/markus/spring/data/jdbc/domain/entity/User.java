@@ -50,10 +50,20 @@ public class User implements Serializable {
     @Override
     public String toString() {
         return "User{" +
-            "id=" + id +
-            ", age=" + age +
-            ", name='" + name + '\'' +
-            ", address='" + address + '\'' +
-            '}';
+                "id=" + id +
+                ", age=" + age +
+                ", name='" + name + '\'' +
+                ", address='" + address + '\'' +
+                '}';
+    }
+
+    public static User createUser() {
+        User user = new User();
+        long currentTime = System.currentTimeMillis();
+        System.out.println("currentTime : " + currentTime);
+        user.setName("帅气的小张 " + currentTime);
+        user.setAge(25);
+        user.setAddress("山东菏泽");
+        return user;
     }
 }
