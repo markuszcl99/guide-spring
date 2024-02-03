@@ -4,6 +4,7 @@ import com.markus.spring.data.jdbc.domain.entity.User;
 import com.markus.spring.data.jdbc.repository.UserDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.TransactionDefinition;
 import org.springframework.transaction.TransactionStatus;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.transaction.support.TransactionCallbackWithoutResult;
@@ -31,6 +32,7 @@ public class UserService {
         user.setName("markus zhang unique time :" + System.currentTimeMillis());
         user.setAge(25);
         user.setAddress("山东菏泽");
+        transactionTemplate.setIsolationLevel(TransactionDefinition.ISOLATION_REPEATABLE_READ);
         transactionTemplate.execute(new TransactionCallbackWithoutResult() {
             @Override
             protected void doInTransactionWithoutResult(TransactionStatus status) {
