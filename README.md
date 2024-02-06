@@ -19,5 +19,5 @@
 - [x] [Spring IoC 容器生命周期](./spring-doc/Spring%20IoC%20容器生命周期.md)
 - [x] [一文搞懂Spring @Autowired注解的使用及其原理](./spring-doc/一文搞懂Spring@Autowired注解的使用及其原理.md)
 - [x] [依赖注入的使用和原理解析](./spring-doc/依赖注入的使用和原理解析.md)
-- [x] [玩转 SpEL 表达式](./spring-doc/玩转 SpEL 表达式.md)
-- [x] [深入理解 Spring 事务机制](./spring-doc/深入理解 Spring 事务机制.md)
+- [x] [玩转 SpEL 表达式](./spring-doc/玩转%20SpEL%20表达式.md)
+- [x] [深入理解 Spring 事务机制](./spring-doc/深入理解%20Spring%20事务机制.md)
