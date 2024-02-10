@@ -7,6 +7,8 @@
                            http://www.springframework.org/schema/util
        http://www.springframework.org/schema/util/spring-util.xsd">
 
+    <bean id="springContextUtil" class="com.markus.spring.ioc.overview.util.SpringContextUtil"/>
+
     <bean id="propertyPlaceholderConfigurer"
           class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
         <property name="location" value="classpath:/META-INF/redis.properties"/>

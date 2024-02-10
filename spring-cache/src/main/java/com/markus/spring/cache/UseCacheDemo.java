@@ -15,7 +15,7 @@ public class UseCacheDemo {
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("classpath:/META-INF/spring-data-redis-context.xml");
 
         RedisTemplate redisTemplate = context.getBean(RedisTemplate.class);
-        redisTemplate.opsForValue().set("my_name", "markuszhang");
+        redisTemplate.opsForValue().set("my_name", "张成龙");
         String myName = (String) redisTemplate.opsForValue().get("my_name");
         System.out.println(myName);
     }
