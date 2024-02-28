@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/util
+       http://www.springframework.org/schema/util/spring-util.xsd">
+
+    <bean id="springContextUtil" class="com.markus.spring.ioc.overview.util.SpringContextUtil"/>
+
+    <bean id="propertyPlaceholderConfigurer"
+          class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="location" value="classpath:/META-INF/redis.properties"/>
+    </bean>
+
+    <bean id="redisStandaloneConfiguration"
+          class="org.springframework.data.redis.connection.RedisStandaloneConfiguration">
+        <property name="hostName" value="${redis.hostname}"/>
+        <property name="port" value="${redis.port}"/>
+        <property name="password"
+                  value="#{T(org.springframework.data.redis.connection.RedisPassword).of('${redis.password}')}"/>
+    </bean>
+
+    <!-- 配置 Redis 连接工厂 -->
+    <bean id="redisConnectionFactory" class="org.springframework.data.redis.connection.jedis.JedisConnectionFactory">
+        <constructor-arg index="0" ref="redisStandaloneConfiguration"/>
+    </bean>
+
+    <!-- 配置 Redis 操作模板类 -->
+    <bean id="redisTemplate" class="org.springframework.data.redis.core.RedisTemplate">
+        <property name="connectionFactory" ref="redisConnectionFactory"/>
+    </bean>
+
+</beans>
