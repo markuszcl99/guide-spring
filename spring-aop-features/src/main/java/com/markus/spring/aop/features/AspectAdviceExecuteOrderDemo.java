@@ -30,7 +30,7 @@ public class AspectAdviceExecuteOrderDemo {
    *    5. @After
    *    6. @Around 方法（非目标方法，是 AOP 包装后的代理对象）调用后的逻辑
    * 不同切面内 同一类型的通知方式执行顺序是明确的，如下所示：
-   *    1. 按照 Spring Order 决定
+   *    1. 按照 Spring Order 决定，@Order 指定的值越大，执行的优先级越低
    *    2. 具体实现 参见如下路径代码：
    *        2.1 org.springframework.aop.aspectj.autoproxy.AspectJAwareAdvisorAutoProxyCreator#sortAdvisors(java.util.List) 排序
    *        2.2 org.springframework.aop.aspectj.annotation.BeanFactoryAspectJAdvisorsBuilder#buildAspectJAdvisors()
