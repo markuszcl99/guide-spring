@@ -29,8 +29,28 @@ public class AspectAnnotationConfig {
   }
 
   @Before("pointcut()")
+  public void a() throws Throwable {
+    System.out.println("@Before invoke a method");
+  }
+
+  @Before("pointcut()")
+  public void b() throws Throwable {
+    System.out.println("@Before invoke b method");
+  }
+
+  @Before("pointcut()")
+  public void c() throws Throwable {
+    System.out.println("@Before invoke c method");
+  }
+
+  @Before("pointcut()")
   public void before() throws Throwable {
-    System.out.println("@Before invoke method");
+    System.out.println("@Before invoke before method");
+  }
+
+  @Before("pointcut()")
+  public void before2() throws Throwable {
+    System.out.println("@Before invoke before2 method");
   }
 
   @After("pointcut()")

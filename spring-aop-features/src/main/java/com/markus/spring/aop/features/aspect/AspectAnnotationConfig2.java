@@ -14,7 +14,7 @@ import org.springframework.stereotype.Component;
  * @Description:
  */
 @Aspect
-@Order
+@Order(-1)
 //@Component
 public class AspectAnnotationConfig2 {
 
