@@ -35,6 +35,7 @@
         <module>spring-cache</module>
         <module>spring-data</module>
         <module>spring-transaction</module>
+        <module>spring-event</module>
     </modules>
 
     <properties>
