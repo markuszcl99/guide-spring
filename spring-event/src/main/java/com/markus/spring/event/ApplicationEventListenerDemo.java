@@ -1,6 +1,7 @@
 package com.markus.spring.event;
 
 import com.markus.spring.event.listener.ContextRefreshedEventListener;
+import com.markus.spring.event.listener.ContextStartedEventListener;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.Configuration;
 
@@ -15,6 +16,7 @@ public class ApplicationEventListenerDemo {
     AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext();
     context.register(ApplicationEventListenerDemo.class);
     context.addApplicationListener(new ContextRefreshedEventListener());
+    context.addApplicationListener(new ContextStartedEventListener());
     context.refresh();
 
     context.close();
