@@ -1,6 +1,10 @@
 package com.markus.spring.application.context.lifecycle;
 
+import org.springframework.beans.factory.config.BeanFactoryPostProcessor;
+import org.springframework.beans.factory.config.BeanPostProcessor;
+import org.springframework.beans.factory.support.BeanDefinitionRegistryPostProcessor;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -16,9 +20,14 @@ public class BeanFactoryPostProcessorDemo {
     public static void main(String[] args) {
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext();
         context.register(BeanFactoryPostProcessorDemo.class);
-        context.addBeanFactoryPostProcessor(new MyBeanDefinitionRegistryPostProcessor());
+//        context.addBeanFactoryPostProcessor(new MyBeanDefinitionRegistryPostProcessor());
 
         context.refresh();
         context.close();
+    }
+
+    @Bean
+    public BeanDefinitionRegistryPostProcessor myBeanFactoryPostProcessor(){
+        return new MyBeanDefinitionRegistryPostProcessor();
     }
 }
