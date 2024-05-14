@@ -1,5 +1,6 @@
 package com.markus.spring.application.context.lifecycle;
 
+import org.springframework.beans.factory.FactoryBean;
 import org.springframework.beans.factory.config.BeanFactoryPostProcessor;
 import org.springframework.beans.factory.config.BeanPostProcessor;
 import org.springframework.beans.factory.support.BeanDefinitionRegistryPostProcessor;
@@ -29,5 +30,10 @@ public class BeanFactoryPostProcessorDemo {
     @Bean
     public BeanDefinitionRegistryPostProcessor myBeanFactoryPostProcessor(){
         return new MyBeanDefinitionRegistryPostProcessor();
+    }
+
+    @Bean
+    public FactoryBean<MyBeanFactoryPostProcessor3> myBeanFactoryPostProcessor3FactoryBean(){
+        return new MyBeanFactoryPostProcessorFactoryBean();
     }
 }
