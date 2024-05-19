@@ -15,6 +15,12 @@ import org.springframework.core.type.AnnotationMetadata;
  */
 @Import(BeanConfiguration2.class)
 public class EchoService implements ImportAware {
+
+    public String echo(String message) {
+        System.out.println("com.markus.spring.application.context.lifecycle.service.EchoService.echo( " + message + " )");
+        return message;
+    }
+
     @Override
     public void setImportMetadata(AnnotationMetadata importMetadata) {
         // do something

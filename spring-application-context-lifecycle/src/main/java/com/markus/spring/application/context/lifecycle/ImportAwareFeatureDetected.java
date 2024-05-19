@@ -1,6 +1,9 @@
 package com.markus.spring.application.context.lifecycle;
 
 import com.markus.spring.application.context.lifecycle.config.BeanConfiguration;
+import com.markus.spring.application.context.lifecycle.config.BeanConfiguration3;
+import com.markus.spring.application.context.lifecycle.service.EchoService;
+import org.springframework.aop.scope.ScopedProxyFactoryBean;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 /**
@@ -15,6 +18,18 @@ public class ImportAwareFeatureDetected {
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext();
         context.register(BeanConfiguration.class);
         context.refresh();
+        for (String beanDefinitionName : context.getBeanDefinitionNames()) {
+            System.out.println(beanDefinitionName);
+        }
+
+        System.out.println("=========================start=========================");
+        EchoService proxyEchoService = context.getBean("proxyEchoService", EchoService.class);
+        proxyEchoService.echo("proxyEchoService");
+        System.out.println("=========================end=========================");
+        System.out.println("=========================start=========================");
+        EchoService noProxyEchoService = context.getBean("noProxyEchoService", EchoService.class);
+        noProxyEchoService.echo("noProxyEchoService");
+        System.out.println("=========================end=========================");
         context.close();
     }
 }
