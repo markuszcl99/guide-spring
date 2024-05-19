@@ -80,7 +80,7 @@ public class BeanConfiguration implements InitializingBean,IBeanConfiguration {
      *          4.1.3.6 处理当前配置类标注的 @Bean 方法（包括继承的超类中的 @Bean 方法）
      *          4.1.3.7 处理超类，如果有的话
      *  4.2 校验
-     *      4.2.1 【类修饰符校验】检验 @Configuration Class 修饰符不能是 final 的
+     *      4.2.1 【类修饰符校验】检验 @Configuration Class 修饰符不能是 final 的，除非它被声明为 proxyBeanMethods=false
      *      4.2.2 【方法修饰符校验】校验 @Configuration Class 里面的 @Bean Method 不能是 final、private 的
      *  4.3 加载 BeanDefinition（遍历在解析阶段解析出的所有的 Configuration Class）
      *      4.3.1 判断配置类是否需要跳过，这里运用到 Condition 相关的知识，如果跳过后面步骤就不做处理了（并将该 BeanDefinition 删除掉，包括被 Import 的）
