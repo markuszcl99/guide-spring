@@ -70,7 +70,7 @@ public class BeanConfiguration implements InitializingBean,IBeanConfiguration {
      * 4. 构建 ConfigurationClassParser，用来解析每一个 @Configuration Class Bean
      *  4.1 解析
      *      4.1.1 ConditionEvaluator 检查条件是否符合
-     *      4.1.2
+     *      4.1.2 针对重复导入的 Configuration class 做过滤（场景：A 导入 C，B 导入 C）
      *      4.1.3 递归处理 configuration class 和它的父类
      *          4.1.3.1 处理嵌套配置类，如上面的 InnerBeanConfiguration
      *          4.1.3.2 处理 @PropertySource 注解
